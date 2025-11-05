@@ -19,21 +19,33 @@ const Services = () => {
       title: "Custom Development",
       description:
         "We build AI-powered apps that solve your specific challenges. From web to mobile, our solutions scale as you grow.",
-      features: ["Web applications", "Mobile apps", "Cloud-ready infrastructure"],
+      features: [
+        "Web applications",
+        "Mobile apps",
+        "Cloud-ready infrastructure",
+      ],
     },
     {
       icon: Workflow,
       title: "AI Transformation",
       description:
         "We help you identify where Agentic AI can make the biggest impact—then we implement it. Transform how your team works, not just your tech stack.",
-      features: ["Identify high-impact opportunities", "Custom AI strategy", "End-to-end implementation"],
+      features: [
+        "Identify high-impact opportunities",
+        "Custom AI strategy",
+        "End-to-end implementation",
+      ],
     },
     {
       icon: Zap,
-      title: "Enterprise Solutions",
+      title: "FDE Support",
       description:
-        "Built to meet enterprise standards: secure, compliant, and reliable. Deploy with confidence knowing your data and operations are protected.",
-      features: ["Enterprise-grade security", "Industry compliance standards", "Always-on support"],
+        "We provide FDE like support to our customers. We are available to discuss and analyze fundamental problems and provide solutions.",
+      features: [
+        "Always-on support",
+        "Fundamental problem analysis",
+        "Solution implementation",
+      ],
     },
   ];
 
@@ -47,7 +59,8 @@ const Services = () => {
             <span className="bg-gradient-primary bg-clip-text ">Solutions</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Everything you need to deploy Agentic AI agents that work autonomously and deliver real results
+            Everything you need to deploy Agentic AI agents that work
+            autonomously and deliver real results
           </p>
         </div>
 

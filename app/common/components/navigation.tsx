@@ -7,9 +7,9 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Services", href: "#services" },
+    // { label: "Services", href: "#services" },
     { label: "Agents", href: "/agents" },
-    { label: "About", href: "#about" },
+    { label: "About", href: "/" },
   ];
 
   return (
@@ -39,7 +39,7 @@ const Navigation = () => {
               variant={"outline"}
               asChild
             >
-              <Link to="/dashboard">Get Started</Link>
+              <Link to="/dashboard">Dashboard</Link>
             </Button>
           </div>
 

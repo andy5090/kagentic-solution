@@ -32,7 +32,9 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Move beyond digital transformation to agentic AI. Build autonomous systems that think, act, and adapt—so you can focus on what matters most.
+            Move beyond digital transformation to agentic AI. Build autonomous
+            systems that think, act, and adapt—so you can focus on what matters
+            most.
           </p>
 
           {/* CTA Buttons */}
@@ -41,7 +43,7 @@ const Hero = () => {
               size="lg"
               className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity group min-w-[200px]"
             >
-              Get started free
+              Get started
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
@@ -49,7 +51,7 @@ const Hero = () => {
               variant="outline"
               className="border-border hover:bg-card/50 min-w-[200px]"
             >
-              See how it works
+              Learn more
             </Button>
           </div>
 
@@ -59,19 +61,25 @@ const Hero = () => {
               <div className="text-3xl md:text-4xl font-display font-bold text-primary">
                 100+
               </div>
-              <div className="text-sm text-muted-foreground">Ready-to-use agents</div>
+              <div className="text-sm text-muted-foreground">
+                Ready-to-use agents
+              </div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl md:text-4xl font-display font-bold text-secondary">
                 24/7
               </div>
-              <div className="text-sm text-muted-foreground">Expert support</div>
+              <div className="text-sm text-muted-foreground">
+                FDE like Expert support
+              </div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl md:text-4xl font-display font-bold text-primary">
                 50+
               </div>
-              <div className="text-sm text-muted-foreground">Successful launches</div>
+              <div className="text-sm text-muted-foreground">
+                Easy integration
+              </div>
             </div>
           </div>
         </div>
