@@ -26,19 +26,11 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
+              <a key={item.label} href={item.href}>
                 {item.label}
               </a>
             ))}
-            <Button
-              className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
-              variant={"outline"}
-              asChild
-            >
+            <Button variant={"outline"} asChild>
               <Link to="/dashboard">Dashboard</Link>
             </Button>
           </div>

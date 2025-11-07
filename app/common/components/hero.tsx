@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Badge } from "./ui/badge";
 
 const Hero = () => {
   return (
@@ -16,17 +19,17 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
+        <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up py-16">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border">
+          <Badge variant={"outline"}>
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-muted-foreground">
               Agentic AI Solutions
             </span>
-          </div>
+          </Badge>
 
           {/* Main headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight">
             Your business, powered by Agentic AI
           </h1>
 
@@ -37,20 +40,23 @@ const Hero = () => {
             most.
           </p>
 
+          {/* Inquiry Form */}
+          <div className="max-w-3xl mx-auto">
+            <form className="space-y-4">
+              <Input type="text" placeholder="Name" />
+              <Input type="email" placeholder="Email" />
+              <Textarea placeholder="Message" />
+              <Button type="submit">Submit</Button>
+            </form>
+          </div>
+
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button
-              size="lg"
-              className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity group min-w-[200px]"
-            >
+            <Button size="lg" className="min-w-[200px]">
               Get started
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-border hover:bg-card/50 min-w-[200px]"
-            >
+            <Button size="lg" variant="outline" className="min-w-[200px]">
               Learn more
             </Button>
           </div>
@@ -66,7 +72,7 @@ const Hero = () => {
               </div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-display font-bold text-secondary">
+              <div className="text-3xl md:text-4xl font-display font-bold text-primary">
                 24/7
               </div>
               <div className="text-sm text-muted-foreground">

@@ -19,25 +19,20 @@ const CTA = () => {
                 </span>
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Join companies using agentic AI to automate workflows, reduce costs, and unlock new possibilities. Let's make it happen together.
+                Join companies using agentic AI to automate workflows, reduce
+                costs, and unlock new possibilities. Let's make it happen
+                together.
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity group min-w-[200px]"
-              >
+              <Button size="lg" className="min-w-[200px]">
                 <Mail className="mr-2 h-5 w-5" />
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-border hover:bg-card/50 min-w-[200px]"
-              >
+              <Button size="lg" variant="outline" className="min-w-[200px]">
                 Schedule Demo
               </Button>
             </div>
