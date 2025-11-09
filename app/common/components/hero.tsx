@@ -40,16 +40,6 @@ const Hero = () => {
             most.
           </p>
 
-          {/* Inquiry Form */}
-          <div className="max-w-3xl mx-auto">
-            <form className="space-y-4">
-              <Input type="text" placeholder="Name" />
-              <Input type="email" placeholder="Email" />
-              <Textarea placeholder="Message" />
-              <Button type="submit">Submit</Button>
-            </form>
-          </div>
-
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button size="lg" className="min-w-[200px]">
@@ -59,6 +49,16 @@ const Hero = () => {
             <Button size="lg" variant="outline" className="min-w-[200px]">
               Learn more
             </Button>
+          </div>
+
+          {/* Inquiry Form */}
+          <div className="max-w-3xl mx-auto">
+            <form className="space-y-4">
+              <Input type="text" placeholder="Name" />
+              <Input type="email" placeholder="Email" />
+              <Textarea placeholder="Message" />
+              <Button type="submit">Ask anything</Button>
+            </form>
           </div>
 
           {/* Stats */}

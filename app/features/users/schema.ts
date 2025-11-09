@@ -1,7 +1,5 @@
 import {
   bigint,
-  boolean,
-  jsonb,
   pgEnum,
   pgSchema,
   pgTable,
@@ -32,23 +30,8 @@ export const profiles = pgTable("profiles", {
   phone: text(),
   email: text().notNull(),
   role: roles().default("developer").notNull(),
-  //   stats: jsonb().$type<{
-  //     followers: number;
-  //     following: number;
-  //   }>(),
-  views: jsonb(),
   created_at: timestamp().notNull().defaultNow(),
   updated_at: timestamp().notNull().defaultNow(),
-});
-
-export const follows = pgTable("follows", {
-  follower_id: uuid().references(() => profiles.profile_id, {
-    onDelete: "cascade",
-  }),
-  following_id: uuid().references(() => profiles.profile_id, {
-    onDelete: "cascade",
-  }),
-  created_at: timestamp().notNull().defaultNow(),
 });
 
 export const notificationType = pgEnum("notification_type", [
@@ -63,18 +46,12 @@ export const notifications = pgTable("notifications", {
   source_id: uuid().references(() => profiles.profile_id, {
     onDelete: "cascade",
   }),
-  //   product_id: bigint({ mode: "number" }).references(() => products.product_id, {
-  //     onDelete: "cascade",
-  //   }),
-  //   post_id: bigint({ mode: "number" }).references(() => posts.post_id, {
-  //     onDelete: "cascade",
-  //   }),
   target_id: uuid()
     .references(() => profiles.profile_id, {
       onDelete: "cascade",
     })
     .notNull(),
-  type: notificationType().notNull(),
+  type: notificationType().notNull().default("notice"),
   created_at: timestamp().notNull().defaultNow(),
 });
 
