@@ -1,99 +1,63 @@
-import {
-  bigint,
-  pgEnum,
-  pgSchema,
-  pgTable,
-  primaryKey,
-  text,
-  timestamp,
-  uuid,
-} from "drizzle-orm/pg-core";
+import { bigint, date, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
-export const users = pgSchema("auth").table("users", {
-  id: uuid().primaryKey(),
-});
-
-export const roles = pgEnum("role", [
-  "developer",
-  "designer",
-  "marketer",
-  "founder",
-  "product-manager",
-]);
-
-export const profiles = pgTable("profiles", {
-  profile_id: uuid()
-    .primaryKey()
-    .references(() => users.id, { onDelete: "cascade" }),
-  avatar: text(),
-  username: text().notNull(),
-  phone: text(),
-  email: text().notNull(),
-  role: roles().default("developer").notNull(),
-  created_at: timestamp().notNull().defaultNow(),
-  updated_at: timestamp().notNull().defaultNow(),
-});
-
-export const notificationType = pgEnum("notification_type", [
-  "notice",
-  "system",
-]);
-
-export const notifications = pgTable("notifications", {
-  notification_id: bigint({ mode: "number" })
-    .primaryKey()
-    .generatedAlwaysAsIdentity(),
-  source_id: uuid().references(() => profiles.profile_id, {
-    onDelete: "cascade",
-  }),
-  target_id: uuid()
-    .references(() => profiles.profile_id, {
-      onDelete: "cascade",
-    })
+export const user = pgTable("user", {
+  id: bigint({ mode: "number" }).primaryKey().generatedAlwaysAsIdentity(),
+  name: text("name").notNull(),
+  phone: text("phone").notNull(),
+  phoneVerified: date("phone_verified"),
+  email: text("email").notNull().unique(),
+  emailVerified: date("email_verified"),
+  image: text("image"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
-  type: notificationType().notNull().default("notice"),
-  created_at: timestamp().notNull().defaultNow(),
 });
 
-export const messageRooms = pgTable("message_rooms", {
-  message_room_id: bigint({ mode: "number" })
-    .primaryKey()
-    .generatedAlwaysAsIdentity(),
-  created_at: timestamp().notNull().defaultNow(),
+export const session = pgTable("session", {
+  id: bigint({ mode: "number" }).primaryKey().generatedAlwaysAsIdentity(),
+  expiresAt: timestamp("expires_at").notNull(),
+  token: text("token").notNull().unique(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
+  ipAddress: text("ip_address"),
+  userAgent: text("user_agent"),
+  userId: bigint({ mode: "number" })
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
 });
 
-export const messageRoomMembers = pgTable(
-  "message_room_members",
-  {
-    message_room_id: bigint({ mode: "number" }).references(
-      () => messageRooms.message_room_id,
-      {
-        onDelete: "cascade",
-      }
-    ),
-    profile_id: uuid().references(() => profiles.profile_id, {
-      onDelete: "cascade",
-    }),
-    created_at: timestamp().notNull().defaultNow(),
-  },
-  (table) => [
-    primaryKey({ columns: [table.message_room_id, table.profile_id] }),
-  ]
-);
+export const account = pgTable("account", {
+  id: bigint({ mode: "number" }).primaryKey().generatedAlwaysAsIdentity(),
+  accountId: text("account_id").notNull(),
+  providerId: text("provider_id").notNull(),
+  userId: bigint({ mode: "number" })
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  accessToken: text("access_token"),
+  refreshToken: text("refresh_token"),
+  idToken: text("id_token"),
+  accessTokenExpiresAt: timestamp("access_token_expires_at"),
+  refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
+  scope: text("scope"),
+  password: text("password"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
+});
 
-export const messages = pgTable("messages", {
-  message_id: bigint({ mode: "number" })
-    .primaryKey()
-    .generatedAlwaysAsIdentity(),
-  message_room_id: bigint({ mode: "number" }).references(
-    () => messageRooms.message_room_id,
-    {
-      onDelete: "cascade",
-    }
-  ),
-  sender_id: uuid().references(() => profiles.profile_id, {
-    onDelete: "cascade",
-  }),
-  content: text().notNull(),
-  created_at: timestamp().notNull().defaultNow(),
+export const verification = pgTable("verification", {
+  id: bigint({ mode: "number" }).primaryKey().generatedAlwaysAsIdentity(),
+  identifier: text("identifier").notNull(),
+  value: text("value").notNull(),
+  expiresAt: timestamp("expires_at").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
 });
