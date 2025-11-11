@@ -4,7 +4,6 @@ import CTA from "../components/cta";
 import Features from "../components/features";
 import Footer from "../components/footer";
 import Hero from "../components/hero";
-import Navigation from "../components/navigation";
 import Services from "../components/services";
 import z from "zod";
 
@@ -41,10 +40,11 @@ export const action = async ({ request }: { request: Request }) => {
   return { success: true };
 };
 
-export default function Landing({}: Route.ComponentProps) {
+export default function Landing({ loaderData }: Route.ComponentProps) {
+  // const { isLoggedIn } = useOutletContext<{ isLoggedIn: boolean }>();
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navigation />
       <main>
         <Hero />
         <Services />

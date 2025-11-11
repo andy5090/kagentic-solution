@@ -2,8 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router";
 import { useState } from "react";
+import { signIn, signOut } from "~/features/auth/auth-client";
 
-const Navigation = () => {
+const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
@@ -11,6 +12,14 @@ const Navigation = () => {
     { label: "Agents", href: "/agents" },
     { label: "About", href: "/" },
   ];
+
+  const handleLogInOut = async () => {
+    if (isLoggedIn) {
+      await signOut();
+    } else {
+      await signIn();
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
@@ -30,9 +39,16 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
-            <Button variant={"outline"} asChild>
-              <Link to="/dashboard">Dashboard</Link>
-            </Button>
+            <div className="hidden md:flex items-center space-x-2">
+              {isLoggedIn && (
+                <Button asChild>
+                  <Link to="/dashboard">Dashboard</Link>
+                </Button>
+              )}
+              <Button variant={"outline"} onClick={handleLogInOut}>
+                {isLoggedIn ? "Logout" : "Login"}
+              </Button>
+            </div>
           </div>
 
           {/* Mobile menu button */}

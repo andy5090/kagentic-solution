@@ -23,7 +23,7 @@ export const orgsToUsers = pgTable(
       () => organizations.id,
       { onDelete: "cascade" }
     ),
-    userId: integer("user_id").references(() => user.id, {
+    userId: text("user_id").references(() => user.id, {
       onDelete: "cascade",
     }),
   },

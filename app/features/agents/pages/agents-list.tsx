@@ -138,8 +138,6 @@ const agentsData = [
 const AgentsAPI = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navigation />
-
       <main className="pt-24 pb-16">
         {/* Header Section */}
         <section className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">

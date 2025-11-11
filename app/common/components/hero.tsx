@@ -3,9 +3,9 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Badge } from "./ui/badge";
-
 import { Form, useActionData } from "react-router";
 import type { action } from "../pages/landing";
+import { TextAnimate } from "./ui/text-animate";
 
 const Hero = () => {
   const actionData = useActionData<typeof action>();
@@ -34,9 +34,22 @@ const Hero = () => {
           </Badge>
 
           {/* Main headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight">
-            Your business, powered by Agentic AI
-          </h1>
+          <TextAnimate
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight"
+            animation="blurInUp"
+            by="character"
+            once
+          >
+            Your business
+          </TextAnimate>
+          <TextAnimate
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight"
+            animation="blurInUp"
+            by="character"
+            once
+          >
+            Powered by Agentic AI
+          </TextAnimate>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
