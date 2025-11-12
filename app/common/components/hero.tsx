@@ -34,22 +34,24 @@ const Hero = () => {
           </Badge>
 
           {/* Main headline */}
-          <TextAnimate
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight"
-            animation="blurInUp"
-            by="character"
-            once
-          >
-            Your business
-          </TextAnimate>
-          <TextAnimate
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight"
-            animation="blurInUp"
-            by="character"
-            once
-          >
-            Powered by Agentic AI
-          </TextAnimate>
+          <div>
+            <TextAnimate
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight"
+              animation="blurInUp"
+              by="character"
+              once
+            >
+              Your business
+            </TextAnimate>
+            <TextAnimate
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight"
+              animation="blurInUp"
+              by="character"
+              once
+            >
+              Powered by Agentic AI
+            </TextAnimate>
+          </div>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">

@@ -27,9 +27,11 @@ const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl md:text-2xl font-display font-bold bg-gradient-primary bg-clip-text">
-              Kagentic Solution
-            </h1>
+            <Link to="/">
+              <h1 className="text-xl md:text-2xl font-display font-bold bg-gradient-primary bg-clip-text">
+                Kagentic Solution
+              </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
