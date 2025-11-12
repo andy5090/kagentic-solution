@@ -11,8 +11,11 @@ import {
   Clock,
   CheckCircle2,
 } from "lucide-react";
-import Navigation from "~/common/components/navigation";
 import Footer from "~/common/components/footer";
+import type { Route } from "./+types/dashboard";
+import { authMiddleware } from "~/middleware/auth";
+
+export const middleware: Route.MiddlewareFunction[] = [authMiddleware];
 
 const Dashboard = () => {
   //   const { toast } = useToast();
