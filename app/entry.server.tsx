@@ -1,5 +1,5 @@
 import type { EntryContext } from "react-router";
-import { RouterContextProvider } from "react-router";
+import { RouterContextProvider, ServerRouter } from "react-router";
 import { renderToReadableStream } from "react-dom/server";
 import { isbot } from "isbot";
 
@@ -10,8 +10,9 @@ export default async function handleRequest(
   routerContext: EntryContext,
   loadContext: unknown
 ) {
+  const router = new ServerRouter(routerContext.staticHandlerContext);
   const body = await renderToReadableStream(
-    routerContext.app,
+    router,
     {
       signal: request.signal,
       onError(error: unknown) {
