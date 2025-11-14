@@ -47,7 +47,11 @@ const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
                   <Link to="/dashboard">Dashboard</Link>
                 </Button>
               )}
-              <Button variant={"outline"} onClick={handleLogInOut}>
+              <Button
+                className="cursor-pointer"
+                variant={"outline"}
+                onClick={handleLogInOut}
+              >
                 {isLoggedIn ? "Logout" : "Login"}
               </Button>
             </div>
