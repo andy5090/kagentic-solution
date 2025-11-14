@@ -1,17 +1,11 @@
 import { eq } from "drizzle-orm";
-import { redirect, RouterContextProvider } from "react-router";
+import { redirect } from "react-router";
 import { userContext } from "~/context";
 import db from "~/db";
 import { user } from "~/features/users/schema";
 import { auth } from "~/lib/auth";
 
-function getLoadContext(originalContext, data) {
-  const context = new RouterContextProvider();
-  context.set(originalContext, data);
-  return context;
-}
-
-export const authMiddleware = async ({ request }) => {
+export const authMiddleware = async ({ request, context }) => {
   const session = await auth.api.getSession({
     headers: request.headers,
   });
@@ -23,5 +17,5 @@ export const authMiddleware = async ({ request }) => {
 
   const userData = await db.select().from(user).where(eq(user.id, userId));
 
-  return getLoadContext(userContext, userData);
+  context.set(userContext, userData);
 };
