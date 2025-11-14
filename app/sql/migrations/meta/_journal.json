@@ -15,6 +15,13 @@
       "when": 1763056290726,
       "tag": "0001_slimy_anita_blake",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1763148875445,
+      "tag": "0002_curious_zodiak",
+      "breakpoints": true
     }
   ]
 }
