@@ -15,7 +15,7 @@ export const authMiddleware = async ({ request, context }) => {
     throw redirect("/");
   }
 
-  const userData = await db.select().from(user).where(eq(user.id, userId));
+  // const userData = await db.select().from(user).where(eq(user.id, userId));
 
-  context.set(userContext, userData);
+  // context.set(userContext, userData);
 };
