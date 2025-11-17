@@ -1,0 +1,1 @@
+ALTER TABLE "organizations" ENABLE ROW LEVEL SECURITY;

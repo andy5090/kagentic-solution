@@ -1,6 +1,5 @@
 import {
   integer,
-  json,
   pgTable,
   primaryKey,
   serial,
@@ -16,7 +15,7 @@ export const organizations = pgTable("organizations", {
   description: text().notNull(),
   created_at: timestamp().notNull().defaultNow(),
   updated_at: timestamp().notNull().defaultNow(),
-});
+}).enableRLS();
 
 export const orgsToUsers = pgTable(
   "organizations_to_users",
@@ -34,7 +33,7 @@ export const orgsToUsers = pgTable(
       columns: [table.organizationId, table.userId],
     }),
   ]
-);
+).enableRLS();
 
 export const apiKeys = pgTable("api_keys", {
   id: serial("id").primaryKey(),
