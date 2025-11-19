@@ -20,10 +20,12 @@ export const submitInquiry = async (inquiry: InquiryInput) => {
     const newInquiry = await db.insert(inquiries).values(inquiry).returning();
 
     await axios.post(DISCORD_WEBHOOK_URL, {
-      content: `New inquiry from ${inquiry.name}\n
-      Email: ${inquiry.email}\n
-      Phone: ${inquiry.phone}\n
-      Message: ${inquiry.message}`,
+      content: `from **${inquiry.name}**
+
+      **Email:** ${inquiry.email}
+      **Phone:** ${inquiry.phone}
+      **Message:**
+      ${inquiry.message}`,
     });
 
     return newInquiry[0];
