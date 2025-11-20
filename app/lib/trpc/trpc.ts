@@ -3,6 +3,7 @@ import { ZodError } from "zod";
 import { initTRPC, TRPCError } from "@trpc/server";
 import { auth } from "../auth/server";
 import db from "~/lib/db";
+import resend from "~/lib/resend";
 
 export const createTRPCContext = async (opts: { headers: Headers }) => {
   const authSession = await auth.api.getSession({
@@ -14,6 +15,7 @@ export const createTRPCContext = async (opts: { headers: Headers }) => {
 
   return {
     db,
+    resend,
     user: authSession?.user,
   };
 };

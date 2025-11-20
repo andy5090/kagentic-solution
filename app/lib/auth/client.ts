@@ -6,6 +6,11 @@ export const signIn = async () => {
   await authClient.signIn.social({
     provider: "google",
     callbackURL: "/dashboard",
+    fetchOptions: {
+      onSuccess: (ctx) => {
+        // resend api call to send welcome email
+      },
+    },
   });
 };
 
