@@ -21,7 +21,7 @@ describe("user-report real execution test", () => {
   it("should count users and send Discord webhook notification", async () => {
     const result = await action({
       request: {
-        method: "POST",
+        method: "GET",
       } as Request,
     } as Route.ActionArgs);
 
@@ -36,7 +36,7 @@ describe("user-report real execution test", () => {
 
 describe("user-report action", () => {
   const mockRequest = {
-    method: "POST",
+    method: "GET",
   } as Request;
 
   beforeAll(() => {
@@ -67,13 +67,13 @@ describe("user-report action", () => {
   });
 
   describe("method validation", () => {
-    it("should return error for non-POST requests", async () => {
-      const getRequest = {
-        method: "GET",
+    it("should return error for non-GET requests", async () => {
+      const postRequest = {
+        method: "POST",
       } as Request;
 
       const result = await action({
-        request: getRequest,
+        request: postRequest,
       } as any);
 
       expect(result).toEqual({
@@ -83,7 +83,7 @@ describe("user-report action", () => {
       expect(axios.post).not.toHaveBeenCalled();
     });
 
-    it("should process POST requests", async () => {
+    it("should process GET requests", async () => {
       const mockUserCount = [{ count: 5 }];
       mockFrom.mockResolvedValue(mockUserCount);
       (axios.post as any).mockResolvedValue({ status: 200 });

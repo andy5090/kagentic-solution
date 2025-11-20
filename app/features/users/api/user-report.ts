@@ -8,7 +8,7 @@ const DISCORD_WEBHOOK_URL =
   "https://discord.com/api/webhooks/1158822981087272992/NXwpqJV7RbRCDzWAg-K0Zfm7-ITvBXqneVYMjeiFjfYnA7v-UjClpWNTyD5DV_Vn5Yhl";
 
 export const action = async ({ request }: Route.ActionArgs) => {
-  if (request.method !== "POST") {
+  if (request.method !== "GET") {
     return {
       error: "Method not allowed",
     };
