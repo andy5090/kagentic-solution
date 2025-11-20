@@ -1,15 +1,11 @@
 import { submitInquiry } from "~/features/inquiries/api";
 import type { Route } from "../../common/pages/+types/landing";
-import CTA from "../components/cta";
-import Features from "../components/features";
 import Footer from "../components/footer";
-import Services from "../components/services";
 import z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { Form } from "react-router";
 import { useEffect, useRef } from "react";
