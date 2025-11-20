@@ -5,3 +5,6 @@
 # React Router
 /.react-router/
 /build/
+
+/react-email-starter/node_modules
+/react-email-starter/bun.lock
