@@ -1,4 +1,5 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
+import threadsIcon from "~/../public/assets/threads-logo-white.svg";
 
 const Footer = () => {
   const footerLinks = {
@@ -13,12 +14,14 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Brand Column */}
-          <div className="col-span-2 md:col-span-1 space-y-4">
+          <div className="col-span-2 md:col-span-1 space-y-4 text-left">
             <h3 className="text-xl font-display font-bold bg-gradient-primary bg-clip-text ">
-              Kagentic Solution
+              Andineering
             </h3>
             <p className="text-sm text-muted-foreground">
-              Excel AX over DX with cutting-edge agentic AI solutions.
+              Agentic AI 솔루션으로
+              <br />
+              DX를 넘어 AX를 탁월하게!
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -26,7 +29,7 @@ const Footer = () => {
                 className="p-2 rounded-lg bg-card hover:bg-card/80 border border-border hover:border-primary/50 transition-colors"
                 aria-label="Twitter"
               >
-                <Twitter className="w-4 h-4" />
+                <img src={threadsIcon} className="w-4 h-4" />
               </a>
               <a
                 href="#"
@@ -35,13 +38,13 @@ const Footer = () => {
               >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="p-2 rounded-lg bg-card hover:bg-card/80 border border-border hover:border-primary/50 transition-colors"
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -68,7 +71,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2025 Kagentic Solution. All rights reserved.
+            © 2025 Andineering. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">

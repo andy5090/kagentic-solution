@@ -24,12 +24,12 @@ export const WelcomeEmail = ({ username, buttonLink }: WelcomeEmailProps) => {
   return (
     <Html>
       <Head />
-      <Preview>Kagentic Solution에 가입하신것을 환영합니다!</Preview>
+      <Preview>Andineering에 가입하신것을 환영합니다!</Preview>
       <Tailwind>
         <Body className="mx-auto my-auto bg-white px-2 font-sans">
           <Container className="mx-auto my-[40px] max-w-[465px] rounded border border-[#eaeaea] border-solid p-[20px]">
             <Heading className="mx-0 my-[30px] p-0 text-center font-normal text-[24px] text-black">
-              Kagentic Solution
+              Andineering
             </Heading>
             <Section className="mt-[16px] mb-[16px] text-center">
               <Text className="text-[16px] leading-[26px]">
@@ -44,7 +44,7 @@ export const WelcomeEmail = ({ username, buttonLink }: WelcomeEmailProps) => {
                 className="rounded bg-[#000000] px-5 py-3 text-center font-semibold text-[12px] text-white no-underline"
                 href={buttonLink}
               >
-                Kagentic Solution 안내 페이지 바로가기
+                Andineering 안내 페이지 바로가기
               </Button>
             </Section>
           </Container>

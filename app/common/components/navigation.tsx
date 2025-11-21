@@ -29,7 +29,7 @@ const Navigation = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
           <div className="shrink-0">
             <Link to="/">
               <h1 className="text-xl md:text-2xl font-display font-bold bg-gradient-primary bg-clip-text">
-                Kagentic Solution
+                Andineering
               </h1>
             </Link>
           </div>

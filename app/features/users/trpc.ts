@@ -17,9 +17,9 @@ export const usersRouter = {
       const { resend } = ctx;
 
       const { error } = await resend.emails.send({
-        from: "noreply@kagentic.com",
+        from: "noreply@andineering.com",
         to: email,
-        subject: "Welcome to Kagentic Solution",
+        subject: "Welcome to Andineering",
         react: WelcomeEmail({ username, buttonLink }),
       });
 

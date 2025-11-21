@@ -102,9 +102,9 @@ export const action = async ({ request }: Route.ActionArgs) => {
       apiKey: `kg_${organization.id}_${randomUUID()}`,
     }),
     resend.emails.send({
-      from: "noreply@kagentic.com",
+      from: "noreply@andineering.com",
       to: session.user.email,
-      subject: "Welcome to Kagentic",
+      subject: "Welcome to Andineering",
       react: (
         <WelcomeEmail
           username={session.user.name}
