@@ -21,6 +21,10 @@ import { randomUUID } from "crypto";
 import { useTRPC } from "~/lib/trpc/react";
 import { useMutation } from "@tanstack/react-query";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import resend from "~/lib/resend";
+import { WelcomeEmail } from "react-email-starter/emails/welcome";
+
+const baseUrl = "https://kagentic-solution.vercel.app";
 
 export const loader = async ({ request }) => {
   const session = await auth.api.getSession({
@@ -96,6 +100,17 @@ export const action = async ({ request }: Route.ActionArgs) => {
       name: "default",
       organizationId: organization.id,
       apiKey: `kg_${organization.id}_${randomUUID()}`,
+    }),
+    resend.emails.send({
+      from: "noreply@kagentic.com",
+      to: session.user.email,
+      subject: "Welcome to Kagentic",
+      react: (
+        <WelcomeEmail
+          username={session.user.name}
+          buttonLink={`${baseUrl}/agentic`}
+        />
+      ),
     }),
   ]);
 
